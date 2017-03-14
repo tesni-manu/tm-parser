@@ -3,7 +3,7 @@ An s expression parser.
 
 #### Grammar
 
-{expression} := {token} | {escaped-token} | {string}
+{expression} := {token} | {escaped-token} | {string} | ( {expression} )
 
 {token} is a sequence of characters except whitespace, single quote, open and closing parentheses.
 
@@ -18,26 +18,38 @@ npm install tm-parser
 
 #### Usage
 ```
-var tmParser = require('tm-parser'),
+var tmParser = require('tm-parser');
 
-	input = "(x y z (1 2) 'Hello World' <%String with ' ( ), no need to escape anything!%>)"
+var input = "(x y z (1 2) 'Hello World' <%String with ' ( ), no need to escape anything!%>)";
 
-console.log(JSON.stringify(tmParser.parse(input)))
+console.log(JSON.stringify(tmParser.parse(input), null, 2));
 ```
 
 ###### Output
 
 [
+
+  [
+  
+    "x",
+
+    "y",
+
+    "z",
+
     [
-        "x",
-        "y",
-        "z",
-        [
-            "1",
-            "2"
-        ],
-        "Hello World",
-        "String with ' ( ), no need to escape anything!"
-    ]
+
+      "1",
+
+      "2"
+
+    ],
+
+    "Hello World",
+
+    "String with ' ( ), no need to escape anything!"
+
+  ]
+
 ]
 
