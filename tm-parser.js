@@ -29,7 +29,7 @@ function parse(input) {
 	}
 	function inWhiteSpace() {
 		if(!isInsideString) {
-			endToken()
+			endToken();
 			(state != 'comment') ? state = 'whitespace' : null
 		} else {
 			appendToToken(c)
