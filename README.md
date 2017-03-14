@@ -3,7 +3,9 @@ An s expression parser.
 
 #### Grammar
 
-{expression} := {token} | {escaped-token} | {string} | ( {expression} )
+{expression} := {item} {whitespace} {expression}
+
+{item} := {token} | {escaped-token} | {string} | **(** {expression} **)**
 
 {token} is a sequence of characters except whitespace, single quote, open and closing parentheses.
 
@@ -22,15 +24,13 @@ var tmParser = require('tm-parser');
 
 var input = "(x y z (1 2) 'Hello World' <%String with ' ( ), no need to escape anything!%>)";
 
-console.log(JSON.stringify(tmParser.parse(input), null, 2));
+console.log(JSON.stringify(tmParser.parse(input)[0], null, 2));
 ```
 
 ###### Output
 
-[
-
   [
-  
+
     "x",
 
     "y",
@@ -51,5 +51,4 @@ console.log(JSON.stringify(tmParser.parse(input), null, 2));
 
   ]
 
-]
 
