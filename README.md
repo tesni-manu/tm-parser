@@ -1,24 +1,32 @@
 # tm-parser
 An s expression parser.
 
-Grammar:
+#### Grammar
 
-<expression> := <token> | <escaped-token> | <string>
+{expression} := {token} | {escaped-token} | {string}
 
-<token> is a sequence of characters except whitespace, single quote, open and closing parentheses.
-<escaped-token> is a sequence of characters enclosed inside single quotes and can contain whitespaces, single quotes, open and closing parentheses, but they need to be escaped with a back-slash.
-<string> is a sequence of characters enclosed inside <% and %>.  All characters except <% and %> are allowed and no characters should be escaped.
+{token} is a sequence of characters except whitespace, single quote, open and closing parentheses.
 
-To install:
+{escaped-token} is a sequence of characters enclosed inside single quotes and can contain whitespaces, single quotes, open and closing parentheses, but they need to be escaped with a back-slash.
+
+{string} is a sequence of characters enclosed inside <% and %>.  All characters except <% and %> are allowed and no characters should be escaped. This can contain newline characters.
+
+#### Intallation
+```
 npm install tm-parser
+```
 
-To use:
+#### Usage
+```
 var tmParser = require('tm-parser'),
+
 	input = "(x y z (1 2) 'Hello World' <%String with ' ( ), no need to escape anything!%>)"
 
-console.log(JSON.stringify(tmParser.parse(input), null, 2))
+console.log(JSON.stringify(tmParser.parse(input)))
+```
 
-Output will be:
+###### Output
+
 [
     [
         "x",
