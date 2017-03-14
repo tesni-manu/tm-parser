@@ -1,0 +1,24 @@
+{
+  "name": "tm-parser",
+  "version": "1.0.0",
+  "description": "An s expression parser",
+  "main": "tm-parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tesni-manu/tm-parser.git"
+  },
+  "keywords": [
+    "parser",
+    "s",
+    "expression"
+  ],
+  "author": "TM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tesni-manu/tm-parser/issues"
+  },
+  "homepage": "https://github.com/tesni-manu/tm-parser#readme"
+}
